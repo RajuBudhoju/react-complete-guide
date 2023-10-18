@@ -6,22 +6,17 @@ import React, { useState } from 'react';
 
 function ExpenseItem(props) {
     const [title, setTitle] = useState(props.title);
-    const [amount, setAmount] = useState(props.amount);
 
     const clickHandler = () => {
         setTitle('Updated');
         console.log(title);
     };
-    const changeAmountHandler = () => {
-        setAmount(100);
-    };
 
     return (
         <Card className="expense-item">
             <ExpenseDate date={props.date}/>
-            <ExpenseDetails title={title} amount={amount}/>
+            <ExpenseDetails title={title} amount={props.amount}/>
             <button onClick={clickHandler}>Change Title</button>
-            <button onClick={changeAmountHandler}>Set Amount to $100</button>
         </Card>
     );
 }
